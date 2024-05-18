@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "966117448786",
+    "project_id": "evoltsoft-faefb",
+    "storage_bucket": "evoltsoft-faefb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966117448786:android:dfb30a2dd1338b48b0938b",
+        "android_client_info": {
+          "package_name": "com.example.evoltsoft_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4KcBe_CoJggHBWFlg5n15kGJvo1dEfIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
