@@ -147,9 +147,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Image.asset(
-                  'assets/SplashScreen_Image/people.png',
+                  'assets/APP_Icons/MAIN.webp',
                   // Add your image path here
-                  height: 150,
+                  height: 250,
                 ),
                 SizedBox(height: 30),
                 TextField(
@@ -263,6 +263,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   },
                   child: Text('Admin'),
                 ),
+                SizedBox(height: 30)
               ],
             ),
           ),

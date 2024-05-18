@@ -79,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 SizedBox(height: 60),
                 Image.asset(
-                  'assets/SplashScreen_Image/people.png', // Add a login image here
-                  height: 150,
+                  'assets/APP_Icons/MAIN.webp', // Add a login image here
+                  height: 250,
                 ),
                 SizedBox(height: 30),
                 TextField(

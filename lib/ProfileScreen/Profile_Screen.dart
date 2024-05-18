@@ -1,9 +1,11 @@
+import 'package:evoltsoft_2/Authentication/Splash_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -105,6 +107,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('loggedIn', false);
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => SplashScreen()),
+          (Route<dynamic> route) => false,
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
@@ -120,12 +133,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         title: Text('User Profile'),
         backgroundColor: Colors.lightBlue,
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout, color: Colors.red),
+            onPressed: _logout,
+          ),
+        ],
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-        ),
+        decoration: BoxDecoration(),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),

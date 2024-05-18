@@ -102,6 +102,7 @@ flutter:
      - assets/APP_Icons/ICON 1.webp
      - assets/APP_Icons/ICON 2.webp
      - assets/Profile.png
+     - assets/APP_Icons/MAIN.webp
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

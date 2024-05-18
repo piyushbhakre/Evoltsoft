@@ -21,7 +21,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     final prefs = await SharedPreferences.getInstance();
     final loggedIn = prefs.getBool('loggedIn') ?? false;
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
 
     if (mounted) {
       Navigator.of(context).pushReplacement(
@@ -49,9 +49,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/SplashScreen_Image/people.png', // Put your image path here
-                width: 200,
-                height: 200,
+                'assets/APP_Icons/MAIN.webp', // Put your image path here
+                width: 280,
+                height: 280,
               ),
               SizedBox(height: 20),
               Text(
@@ -63,9 +63,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                 ),
               ),
               SizedBox(height: 10),
-              CircularProgressIndicator(
+              LinearProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                backgroundColor: Colors.grey,
+                value: 0.7, // Value should be between 0.0 and 1.0
               ),
+
             ],
           ),
         ),
