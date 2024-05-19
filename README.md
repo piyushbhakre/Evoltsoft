@@ -1,6 +1,7 @@
 You can sign up with your credentials. Alternatively, you can log in using the following username and password:
 
 Username: test@gmail.com
+
 Password: @123456@
 
                     Project Details
