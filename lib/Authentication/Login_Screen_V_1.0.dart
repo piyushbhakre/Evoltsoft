@@ -14,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController _usernameController;
   late TextEditingController _passwordController;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -30,6 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _usernameController.text.trim(),
@@ -45,10 +50,20 @@ class _LoginScreenState extends State<LoginScreen> {
           builder: (context) => ChargingStationDetails(),
         ),
       );
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        errorMessage = 'Invalid username or password';
+      } else {
+        errorMessage = 'Error signing in: $e';
+      }
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error signing in: $e')),
+        SnackBar(content: Text(errorMessage)),
       );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -77,6 +92,8 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                if (_isLoading)
+                  LinearProgressIndicator(),
                 SizedBox(height: 60),
                 Image.asset(
                   'assets/APP_Icons/MAIN.webp', // Add a login image here
