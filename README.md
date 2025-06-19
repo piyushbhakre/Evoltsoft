@@ -20,7 +20,7 @@ Evoltsoft is a versatile application designed to facilitate easy access to elect
 
 ## Screenshots
 
-Below are some screenshots showcasing the NewsSphere app in action:
+Below are some screenshots showcasing the Evoltsoft app in action:
 <table>
   <tr>
     <td><img src="https://github.com/piyushbhakre/Evoltsoft/assets/170785113/d2995654-e2fd-41c3-9454-6721958f72d8" width="200"/></td>
